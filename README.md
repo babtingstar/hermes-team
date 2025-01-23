@@ -10,7 +10,8 @@
 ![Lombok](https://img.shields.io/badge/Project%20Lombok-FF2D20?style=for-the-badge&logo=lombok&logoColor=white)
 
 ## 프로젝트 개요
-KHT Academy는 Java Spring Boot를 기반으로 한 웹 애플리케이션 프로젝트로, MyBatis를 통해 데이터베이스와 통신하며, Thymeleaf를 활용해 동적 HTML 페이지를 생성합니다. 이 프로젝트는 프론트엔드와 백엔드 기술을 조화롭게 결합하여 효율적이고 사용자 친화적인 웹 서비스를 제공합니다.
+
+Hermes는 Java Spring Boot를 기반으로 한 웹 애플리케이션 프로젝트로, MyBatis를 통해 데이터베이스와 통신하며, Thymeleaf를 활용해 동적 HTML 페이지를 생성합니다. 이 프로젝트는 프론트엔드와 백엔드 기술을 조화롭게 결합하여 효율적이고 사용자 친화적인 웹 서비스를 제공합니다.
 
 ---
 
@@ -26,23 +27,27 @@ KHT Academy는 Java Spring Boot를 기반으로 한 웹 애플리케이션 프�
 ---
 
 ## 디렉토리 구조
+
 ```
-khtAcademy
+hermes-team
 ├── .idea
 ├── .mvn
 ├── src
 │   ├── main
 │   │   ├── java
-│   │   │   └── com.kh.khtAcademy
+│   │   │   └── com.hermes.hermes
 │   │   │       ├── config
 │   │   │       ├── controller
 │   │   │       ├── dto
 │   │   │       ├── mapper
 │   │   │       ├── service
-│   │   │       └── KhtAcademyApplication
-│   │   ├── resources
+│   │   │       └── HermesApplication
+│   │   └── resources
 │   │       ├── mappers
 │   │       ├── static
+│   │       │      ├── css
+│   │       │      ├── images
+│   │       │      └── js
 │   │       ├── templates
 │   │       ├── application.properties
 │   │       └── config.properties
@@ -74,28 +79,22 @@ khtAcademy
 
 <table>
   <tr>
-    <td><img src="https://via.placeholder.com/100" alt="팀원이미지1" /></td>
-    <td><img src="https://via.placeholder.com/100" alt="팀원이미지2" /></td>
-    <td><img src="https://via.placeholder.com/100" alt="팀원이미지3" /></td>
-    <td><img src="https://via.placeholder.com/100" alt="팀원이미지4" /></td>
+    <td>신동훈</td>
+    <td>이도형</td>
+    <td>김서현</td>
+    <td>이희섭</td>
   </tr>
   <tr>
-    <td>팀원1</td>
-    <td>팀원2</td>
-    <td>팀원3</td>
-    <td>팀원4</td>
-  </tr>
-  <tr>
+    <td>상품페이지</td>
+    <td>메인페이지</td>
     <td>회원가입</td>
-    <td>게시판</td>
-    <td>메인</td>
     <td>마이페이지</td>
   </tr>
   <tr>
-    <td>깃허브</td>
-    <td>노션 정리</td>
-    <td>문서 정리</td>
-    <td>readme 정리</td>
+    <td>GITHUB</td>
+    <td>FIGMA</td>
+    <td>Notion</td>
+    <td>readme,ERD</td>
   </tr>
 </table>
 
@@ -104,32 +103,37 @@ khtAcademy
 ## 실행 방법
 
 1. 이 저장소를 클론합니다.
+
    ```bash
-   git clone <repository_url>
+   git clone <https://github.com/sin-doctor/hermes-team.git>
    ```
 
 2. 프로젝트 디렉토리로 이동합니다.
+
    ```bash
-   cd khtAcademy
+   cd hermes
    ```
 
 3. 필요한 의존성을 설치합니다.
+
    ```bash
    mvn install
    ```
 
 4. 애플리케이션을 실행합니다.
+
    ```bash
    mvn spring-boot:run
    ```
 
-5. 브라우저에서 [http://localhost:8080](http://localhost:8080)을 열어 확인합니다.
+5. 브라우저에서 [http://localhost:9090](http://localhost:9090)을 열어 확인합니다.
 
 ---
 
 ## 의존성
 
 `pom.xml` 파일에 포함된 주요 의존성:
+
 - Spring Boot Starter Web
 - Spring Boot Starter Thymeleaf
 - MyBatis Spring Boot Starter
@@ -166,5 +170,4 @@ khtAcademy
 
 프로젝트와 관련하여 문의 사항이 있으면 아래 이메일로 연락주세요.
 
-- Email: [your_email@example.com](mailto:your_email@example.com)
-
+- Email: [kht789@gmail.com](mailto:your_email@example.com)
