@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>계정 복구</title>
+    <link href="/css/styles.css" rel="stylesheet">
+    <link href="/images/hermes-logo.png" rel="icon">
+    <script src="/js/login_search.js"></script>
+</head>
+<body>
+<th:block th:replace="~{layout/header :: header}"></th:block>
+<div class="login_search_container">
+
+    <form class="login_search_form" id="login_search" action="/login_search_completed" method="get">
+        <label for="user_name">사용자 이름:</label>
+        <input
+                type="text"
+                id="user_name"
+                name="user_name"
+                placeholder="사용자 이름 입력"
+                required
+        />
+
+        <label for="question">보안 질문:</label>
+        <select id="question" name="question">
+            <option value="birthCity">출생 도시는 어디인가요?</option>
+            <option value="firstSchool">첫번째 학교 이름은 무엇인가요?</option>
+            <option value="favoriteFood">가장 좋아하는 음식은 무엇인가요?</option>
+        </select>
+
+        <label for="user_verification_answer">답변:</label>
+        <input type="text" id="user_verification_answer" name="user_verification_answer" placeholder="답변 입력" required />
+
+        <button type="submit" >입력 완료</button>
+    </form>
+
+</div>
+<th:block th:replace="~{layout/footer :: footer}"></th:block>
+</body>
+</html>

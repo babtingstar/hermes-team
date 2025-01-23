@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hermes-Product_Details_Page</title>
+    <link href="/css/styles.css" rel="stylesheet">
+    <link href="/images/hermes-logo.png" rel="icon">
+</head>
+<body>
+
+<th:block th:replace="~{layout/header :: header}"></th:block>
+
+<div class="product-container">
+    <div class="product-image interactive-container">
+        <div class="card">
+            <img th:src="@{${product.getProduct_image_path()}}" alt="제품 이미지" class="interactive-image">
+            <div class="card-shine"></div>
+        </div>
+    </div>
+    <div class="product-details">
+        <h1 th:text="${product.getProduct_name()}">제품명</h1>
+
+        <div class="product-description">
+            <p th:text="${product.getProduct_description()}">상품 간략 설명</p>
+        </div>
+
+        <form action="/purchase_completed_page" method="post">
+            <div class="size-selector">
+                <label for="size">신발 사이즈 선택:</label>
+                <select id="size" name="size">
+                    <option th:each="size : ${sizes}"
+                            th:value="${size}"
+                            th:text="${size + 'mm'}">250mm
+                    </option>
+                </select>
+            </div>
+            <div class="price-and-button">
+                <p class="price">가격: <strong th:text="${product.getProduct_price()+'원'}">₩XX,XXX</strong></p>
+                <input type="hidden" name="productId" th:value="${product.getProduct_reg_num()}"/>
+                <button type="submit" class="buy-button">구매하기</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    const interactiveContainer = document.querySelector('.interactive-container');
+    const card = document.querySelector('.card');
+    const shine = document.querySelector('.card-shine');
+
+    interactiveContainer.addEventListener('mousemove', (e) => {
+        const { width, height, left, top } = interactiveContainer.getBoundingClientRect();
+        const x = e.clientX - left;
+        const y = e.clientY - top;
+
+        // 3D 회전 계산
+        const rotateX = ((y / height) - 0.5) *70; //speed down low number
+        const rotateY = ((x / width) - 0.5) * -70; //speed down low number
+
+        // 빛 반사 위치 계산
+        const shineX = (x / width) * 100;
+        const shineY = (y / height) * 100;
+
+        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        shine.style.background = `radial-gradient(circle at ${shineX}% ${shineY}%, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0))`;
+    });
+
+    interactiveContainer.addEventListener('mouseleave', () => {
+        card.style.transform = 'rotateX(0deg) rotateY(0deg)';
+        shine.style.background = 'linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0))';
+    });
+</script>
+
+<th:block th:replace="~{layout/footer :: footer}"></th:block>
+
+</body>
+</html>

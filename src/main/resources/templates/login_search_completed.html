@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>복구 완료!</title>
+    <link href="/css/styles.css" rel="stylesheet">
+    <link href="/images/hermes-logo.png" rel="icon">
+</head>
+<body>
+
+<th:block th:replace="~{layout/header :: header}"></th:block>
+
+<div class="login_search_completed_container">
+    <div class="find-container" th:if="${user!= null}">
+        <label >당신의 아이디는</label>
+        <p id="user_id" th:text="${user.user_id}"></p>
+        <label >당신의 비밀번호는</label>
+        <p id="user_pw" th:text="${user.user_pw}"></p>
+
+    </div>
+    <div class="find-container" th:if="${user == null}">
+
+        <p>일치하는 회원이 없습니다.</p>
+
+
+    </div>
+    <a class="links" href="/">메인으로 돌아가기</a>
+
+</div>
+<th:block th:replace="~{layout/footer :: footer}"></th:block>
+</body>
+</html>
